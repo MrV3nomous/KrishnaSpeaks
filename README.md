@@ -2,8 +2,7 @@
 
 **🕉️ Chant, Listen, Reflect – Interactive Krishna AI Chatbot in Java 🎵**
 
-![Java](https://img.shields.io/badge/Language-Java-blue?style=flat&logo=java)  ![License](https://img.shields.io/badge/License-MIT-green?style=flat)  ![Build](https://img.shields.io/badge/Build-Pass-success?style=flat)  ![Offline](https://img.shields.io/badge/Status-Offline%20AI-brightgreen?style=flat)  ![Version](https://img.shields.io/badge/Version-1.0.0-blueviolet?style=flat)  ![Open in Termux](https://img.shields.io/badge/Run%20in-Termux-yellow?style=flat&logo=android)  ![Knowledge Base](https://img.shields.io/badge/Knowledge%20Base-Dynamic-orange?style=flat)  ![CLI Experience](https://img.shields.io/badge/CLI-Immersive-purple?style=flat)
-
+![Java](https://img.shields.io/badge/Language-Java-blue?style=flat&logo=java)  ![License](https://img.shields.io/badge/License-MIT-green?style=flat)  ![Build](https://img.shields.io/badge/Build-Pass-success?style=flat)  ![Offline](https://img.shields.io/badge/Status-Offline%20AI-brightgreen?style=flat)  ![Version](https://img.shields.io/badge/Version-1.0.0-blueviolet?style=flat)  ![Knowledge Base](https://img.shields.io/badge/Knowledge%20Base-Dynamic-orange?style=flat)  ![CLI Experience](https://img.shields.io/badge/CLI-Immersive-purple?style=flat)
 
 ---
 
