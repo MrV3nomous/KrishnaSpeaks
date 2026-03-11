@@ -13,6 +13,10 @@ KrishnaSpeaks is a serene, intelligent, and immersive CLI chatbot designed to co
 Whether learning about Vrindavan, Mathura, Gita quotes, or chanting along with bhajans, KrishnaSpeaks responds emotionally and contextually, creating a truly reflective experience.
 
 
+
+[![Try KrishnaSpeaks](https://img.shields.io/badge/Try%20KrishnaSpeaks-Run%20Locally-brightgreen?style=for-the-badge)](#how-it-works)
+
+
 ---
 
 
@@ -28,7 +32,7 @@ Whether learning about Vrindavan, Mathura, Gita quotes, or chanting along with b
 
 ### 📚 Rich Knowledge Base
 
-- Offline, scalable /knowledge folder with topics like:
+**Offline, scalable and modular knowledge base in /knowledge folder with topics like:**
 - Greetings, stories, wisdom, Gita quotes
 - Festivals: Janmashtami, Radhashtami, Holi
 - Sacred places: Mathura, Vrindavan, Braj
