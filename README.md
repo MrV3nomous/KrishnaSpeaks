@@ -4,7 +4,12 @@
 
 ![Java](https://img.shields.io/badge/Language-Java-blue?style=flat&logo=java)  ![License](https://img.shields.io/badge/License-MIT-green?style=flat)  ![Build](https://img.shields.io/badge/Build-Pass-success?style=flat)  ![Offline](https://img.shields.io/badge/Status-Offline%20AI-brightgreen?style=flat)  ![Version](https://img.shields.io/badge/Version-1.0.0-blueviolet?style=flat)  ![Knowledge Base](https://img.shields.io/badge/Knowledge%20Base-Dynamic-orange?style=flat)  ![CLI Experience](https://img.shields.io/badge/CLI-Immersive-purple?style=flat)
 
+
+
 ---
+---
+
+
 
 
 ## 🌟 Welcome to KrishnaSpeaks
@@ -12,9 +17,6 @@
 KrishnaSpeaks is a serene, intelligent, and immersive CLI chatbot designed to converse with users as if Krishna himself is responding. Explore Krishna’s teachings, stories, leelas, and wisdom in a calm and interactive space.
 Whether learning about Vrindavan, Mathura, Gita quotes, or chanting along with bhajans, KrishnaSpeaks responds emotionally and contextually, creating a truly reflective experience.
 
-
-
-[![Try KrishnaSpeaks](https://img.shields.io/badge/Try%20KrishnaSpeaks-Run%20Locally-brightgreen?style=for-the-badge)](#how-it-works)
 
 
 ---
