@@ -1,0 +1,17 @@
+*.class
+/bin/
+/out/
+*.log
+.DS_Store
+Thumbs.db
+*.iml
+.idea/
+*.vscode/
+*.tmp
+*.swp
+*~
+node_modules/
+dist/
+build/
+.env
+.env.*
