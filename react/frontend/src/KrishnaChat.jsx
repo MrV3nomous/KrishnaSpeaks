@@ -316,7 +316,6 @@ export default function KrishnaChat() {
                 return { role: m.role, content: contentString };
             });
 
-            // UPDATED: Completely baked-in dynamic URL. No Vercel Env Vars needed.
             const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
                 ? 'http://localhost:5000'
                 : 'https://krishna-speaks-api.onrender.com';
