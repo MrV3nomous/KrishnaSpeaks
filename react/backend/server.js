@@ -6,7 +6,18 @@ import Groq from 'groq-sdk';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+
+const corsOptions = {
+    origin: [
+        'https://krishna-speaks-kappa.vercel.app',
+        'http://localhost:5173'
+    ],
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
