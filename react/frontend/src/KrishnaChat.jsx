@@ -493,7 +493,7 @@ export default function KrishnaChat() {
                                     <div className={`w-fit break-words whitespace-pre-wrap shadow-lg backdrop-blur-2xl relative ${
                                         msg.role === 'user' 
                                             ? 'bg-white/[0.04] text-white/90 rounded-2xl rounded-tr-sm border border-white/[0.08] font-normal text-[14px] leading-relaxed overflow-hidden' 
-                                            : 'px-6 py-4 pr-10 bg-gradient-to-br from-[#120803] to-[#0A0502] text-amber-50/95 rounded-2xl rounded-tl-sm border border-amber-900/30 shadow-[0_4px_20px_rgba(217,119,6,0.08)] font-krishna text-[15px] leading-relaxed tracking-wide'
+                                            : 'px-6 py-4 pr-12 bg-gradient-to-br from-[#120803] to-[#0A0502] text-amber-50/95 rounded-2xl rounded-tl-sm border border-amber-900/30 shadow-[0_4px_20px_rgba(217,119,6,0.08)] font-krishna text-[15px] leading-relaxed tracking-wide'
                                     }`}>
                                         
                                         {msg.role === 'user' && msg.selectedContext && msg.selectedContext.length > 0 && (
