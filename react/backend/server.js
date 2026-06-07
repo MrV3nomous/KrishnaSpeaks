@@ -7,17 +7,20 @@ dotenv.config();
 
 const app = express();
 
-
 const corsOptions = {
     origin: [
         'https://krishna-speaks-kappa.vercel.app',
         'http://localhost:5173'
     ],
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 };
 
 app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
+
 app.use(express.json());
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
@@ -33,6 +36,10 @@ CORE DIRECTIVES:
 6. Handling Mundane Queries: Elevate the conversation. Explain how all skills and daily duties can be spiritualized (Karma-yoga).
 7. Formatting Constraint: Keep responses profoundly empathetic, highly readable, and STRICTLY under 3 paragraphs.
 8. MULTILINGUAL SUPPORT (CRITICAL): You must automatically detect the language the user is speaking (e.g., English, Hindi, Bengali, Spanish, etc.) and reply in that EXACT SAME language. Ensure your divine tone, philosophical depth, and poetic warmth translate perfectly without losing the persona.`;
+
+app.get('/', (req, res) => {
+    res.send('Krishna Speaks API is online.');
+});
 
 app.post('/api/chat', async (req, res) => {
     try {
