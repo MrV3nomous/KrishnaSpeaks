@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { KNOWLEDGE_NODES } from './knowledge.js'; // Ensure your file exports KNOWLEDGE_NODES
+import { KNOWLEDGE_NODES } from './knowledge.js';
 
 const UI_TEXT = {
     en: {
@@ -316,7 +316,10 @@ export default function KrishnaChat() {
                 return { role: m.role, content: contentString };
             });
 
-            const response = await fetch('http://localhost:5000/api/chat', {
+            // UPDATED: Dynamic API URL for Vercel deployment
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
+            const response = await fetch(`${API_URL}/api/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: llmPrompt + hiddenInstruction, history: historyForApi }),
@@ -335,7 +338,6 @@ export default function KrishnaChat() {
 
     const isSearching = searchQuery.trim().length > 0;
     const searchTerms = isSearching ? searchQuery.toLowerCase().split(/\s+/).filter(Boolean) : [];
-
 
     const globalFilteredNodes = useMemo(() => {
         if (!isSearching) return KNOWLEDGE_NODES;
@@ -493,7 +495,6 @@ export default function KrishnaChat() {
                                             : 'px-6 py-4 bg-gradient-to-br from-[#120803] to-[#0A0502] text-amber-50/95 rounded-2xl rounded-tl-sm border border-amber-900/30 shadow-[0_4px_20px_rgba(217,119,6,0.08)] font-krishna text-[15px] leading-relaxed tracking-wide'
                                     }`}>
                                         
-                                        
                                         {msg.role === 'user' && msg.selectedContext && msg.selectedContext.length > 0 && (
                                             <div className="bg-amber-500/10 border-b border-white/5 px-4 py-2.5 flex flex-wrap gap-1.5 items-center">
                                                 <span className="text-[9px] text-amber-400/80 uppercase tracking-widest font-bold mr-1">{t.contextPrefix}</span>
@@ -525,7 +526,7 @@ export default function KrishnaChat() {
                                             {copiedIndex === idx ? (
                                                 <svg className="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                                             ) : (
-                                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                                             )}
                                         </button>
                                     )}
