@@ -318,7 +318,7 @@ export default function KrishnaChat() {
 
             const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
                 ? 'http://localhost:5000'
-                : 'https://krishna-speaks-api.onrender.com';
+                : 'https://krishnaspeaks.onrender.com';
 
             const response = await fetch(`${API_URL}/api/chat`, {
                 method: 'POST',
