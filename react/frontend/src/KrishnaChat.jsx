@@ -299,7 +299,7 @@ export default function KrishnaChat() {
 
         try {
             const languageName = lang === 'en' ? 'English' : lang === 'bn' ? 'Bengali' : 'Hindi';
-            const hiddenInstruction = `\n\n(System Note: Please weave in the main relevant Sanskrit verses in Devanagari script where applicable, and provide their translations/explanations beautifully in ${languageName}. Base your answer heavily on the provided CONTEXT TAGS if they exist.)`;
+            const hiddenInstruction = `\n\n(System Note: Weave in relevant Sanskrit verses ONLY IF you are 100% certain of their origin. Otherwise, omit the Sanskrit and just provide the philosophical teaching. Provide translations/explanations in ${languageName}. Base your answer heavily on the provided CONTEXT TAGS if they exist.)`;
             
             const historyForApi = newMessages.slice(-6).map((m, index, array) => {
                 let contentString = "";
@@ -490,10 +490,10 @@ export default function KrishnaChat() {
                                 </div>
                                 
                                 <div className="relative group/bubble max-w-[92%] lg:max-w-[85%]">
-                                    <div className={`w-fit break-words whitespace-pre-wrap shadow-lg backdrop-blur-2xl ${
+                                    <div className={`w-fit break-words whitespace-pre-wrap shadow-lg backdrop-blur-2xl relative ${
                                         msg.role === 'user' 
                                             ? 'bg-white/[0.04] text-white/90 rounded-2xl rounded-tr-sm border border-white/[0.08] font-normal text-[14px] leading-relaxed overflow-hidden' 
-                                            : 'px-6 py-4 bg-gradient-to-br from-[#120803] to-[#0A0502] text-amber-50/95 rounded-2xl rounded-tl-sm border border-amber-900/30 shadow-[0_4px_20px_rgba(217,119,6,0.08)] font-krishna text-[15px] leading-relaxed tracking-wide'
+                                            : 'px-6 py-4 pr-10 bg-gradient-to-br from-[#120803] to-[#0A0502] text-amber-50/95 rounded-2xl rounded-tl-sm border border-amber-900/30 shadow-[0_4px_20px_rgba(217,119,6,0.08)] font-krishna text-[15px] leading-relaxed tracking-wide'
                                     }`}>
                                         
                                         {msg.role === 'user' && msg.selectedContext && msg.selectedContext.length > 0 && (
@@ -521,7 +521,7 @@ export default function KrishnaChat() {
                                     {msg.role === 'assistant' && (
                                         <button 
                                             onClick={() => handleCopy(msg.content, idx)}
-                                            className="absolute -right-10 bottom-1 p-2 text-white/20 hover:text-amber-400 opacity-0 group-hover/bubble:opacity-100 transition-all duration-200 bg-white/5 backdrop-blur-md rounded-full border border-white/5"
+                                            className="absolute right-2 bottom-2 p-1.5 text-white/20 hover:text-amber-400 opacity-0 group-hover/bubble:opacity-100 transition-all duration-200 bg-white/5 backdrop-blur-md rounded-lg border border-white/5 z-10"
                                             title="Copy text"
                                         >
                                             {copiedIndex === idx ? (
