@@ -14,7 +14,7 @@ const UI_TEXT = {
     bn: {
         title: "কৃষ্ণ কথা", subtitle: "জপ • শ্রবণ • মনন",
         placeholder: "পথনির্দেশিকা খুঁজুন...", ask: "জিজ্ঞাসা", stop: "থামান",
-        scriptures: "পবিত্র গ্রন্থ", gita: "ভগবদ্গীতা", philosophy: "দর্শন",
+        scriptures: "পবিত্র গ্রন্থ", gita: "ভগবদ্গীতা", philosophy: "दर्शन",
         search: "সর্বত্র অনুসন্ধান করুন...",
         edit: "সম্পাদনা",
         contextPrefix: "প্রসঙ্গ:", 
@@ -473,8 +473,8 @@ export default function KrishnaChat() {
                     <div className="w-7"></div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto pt-8 pb-6 px-4 lg:px-8 scroll-smooth scrollbar-hide" ref={chatContainerRef} onScroll={handleScroll}>
-                    <div className="max-w-4xl mx-auto space-y-6 flex flex-col w-full pb-48">
+                <div className="flex-1 overflow-y-auto pt-8 pb-4 px-4 lg:px-8 scroll-smooth scrollbar-hide" ref={chatContainerRef} onScroll={handleScroll}>
+                    <div className="max-w-4xl mx-auto space-y-6 flex flex-col w-full pb-2">
                         {messages.map((msg, idx) => (
                             <div key={idx} className={`flex flex-col w-full group ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                                 
@@ -558,8 +558,8 @@ export default function KrishnaChat() {
                     </div>
                 </div>
 
-                <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#020407] via-[#020407]/95 to-transparent pt-16 pb-[max(1.5rem,env(safe-area-inset-bottom))] px-4 z-20 pointer-events-none">
-                    <div className="max-w-4xl mx-auto w-full flex flex-col justify-end pointer-events-auto">
+                <div className="w-full shrink-0 bg-[#020407]/90 backdrop-blur-2xl border-t border-white/5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] px-4 z-20">
+                    <div className="max-w-4xl mx-auto w-full flex flex-col justify-end">
                         
                         {selectedTopics.length > 0 && (
                             <div className="flex flex-wrap gap-1.5 mb-3 px-2 max-h-[80px] overflow-y-auto scrollbar-hide">
@@ -572,12 +572,16 @@ export default function KrishnaChat() {
                             </div>
                         )}
 
-                        <div className="flex items-end gap-2 bg-white/[0.02] backdrop-blur-3xl p-2 rounded-3xl border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)] focus-within:border-white/20 focus-within:bg-white/[0.04] transition-all duration-500">
+                        <div className="flex items-end gap-2 bg-white/[0.02] backdrop-blur-3xl p-2 rounded-3xl border border-white/[0.08] focus-within:border-white/20 focus-within:bg-white/[0.04] transition-all duration-500">
                             <textarea
-                                ref={textareaRef} value={input} onChange={(e) => { setInput(e.target.value); e.target.style.height = 'auto'; e.target.style.height = `${Math.min(e.target.scrollHeight, 130)}px`; }} onKeyDown={handleKeyDown} disabled={isLoading || isTyping}
+                                ref={textareaRef} 
+                                value={input} 
+                                onChange={(e) => { setInput(e.target.value); e.target.style.height = 'auto'; e.target.style.height = `${Math.min(e.target.scrollHeight, 130)}px`; }} 
+                                onKeyDown={handleKeyDown} 
+                                disabled={isLoading || isTyping}
                                 placeholder={selectedTopics.length > 0 ? "Ask about these topics..." : t.placeholder}
-                                onFocus={() => {setTimeout(() => {window.scrollTo(0, 0); document.body.scrollTop = 0;}, 100);}}
-                                className="flex-1 bg-transparent text-white placeholder-white/30 px-4 py-3 focus:outline-none disabled:opacity-50 text-[14px] resize-none overflow-hidden min-h-[44px] rounded-xl font-normal leading-relaxed" rows={1}
+                                className="flex-1 bg-transparent text-white placeholder-white/30 px-4 py-3 focus:outline-none disabled:opacity-50 text-[14px] resize-none overflow-hidden min-h-[44px] rounded-xl font-normal leading-relaxed" 
+                                rows={1}
                             />
                             {(isLoading || isTyping) ? (
                                 <button onClick={handleStop} className="bg-white/5 hover:bg-white/10 text-white/70 border border-white/10 font-semibold px-5 py-2.5 mb-0.5 rounded-2xl transition-all h-[44px] flex items-center gap-2">
