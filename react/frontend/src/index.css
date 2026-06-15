@@ -22,6 +22,7 @@ html, body, #root {
   overflow: hidden;
   background-color: #020407;
   overscroll-behavior-y: none;
+}
 
 body {
   color: #FAFAFA;
