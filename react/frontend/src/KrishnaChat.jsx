@@ -379,7 +379,7 @@ export default function KrishnaChat() {
     const hasAnyMatch = globalFilteredNodes.length > 0;
 
     return (
-        <div className="flex fixed inset-0 h-[100dvh] w-full bg-[#020407] text-white selection:bg-amber-500/30 font-sans overflow-hidden">    
+        <div className="absolute inset-0 flex bg-[#020407] text-white selection:bg-amber-500/30 font-sans overflow-hidden">    
             <div className="absolute top-0 left-1/4 w-[60vw] h-[50vh] bg-teal-800/15 blur-[150px] rounded-full pointer-events-none z-0"></div>
             <div className="absolute bottom-0 right-0 w-[40vw] h-[60vh] bg-amber-700/15 blur-[160px] rounded-full pointer-events-none z-0"></div>
 
@@ -463,7 +463,7 @@ export default function KrishnaChat() {
                 </div>
             </div>
 
-            <div className="flex-1 flex flex-col h-full relative z-10 bg-transparent">
+            <div className="flex-1 flex flex-col relative z-10 bg-transparent min-w-0">
                 
                 <div className="lg:hidden w-full bg-[#020407]/80 backdrop-blur-2xl border-b border-white/5 p-4 flex justify-between items-center z-30 shrink-0 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
                     <button onClick={() => setIsMobileMenuOpen(true)} className="text-amber-500 p-1 relative z-50">
