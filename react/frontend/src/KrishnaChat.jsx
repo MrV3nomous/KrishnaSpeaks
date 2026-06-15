@@ -379,7 +379,8 @@ export default function KrishnaChat() {
     const hasAnyMatch = globalFilteredNodes.length > 0;
 
     return (
-      <div className="flex fixed inset-0 h-screen w-screen bg-[#020407] text-white selection:bg-amber-500/30 font-sans overflow-hidden">    
+      {/* 🔴 FIX 1: Changed h-screen to h-[100dvh] to prevent address bar layout breaks */}
+      <div className="flex fixed inset-0 h-[100dvh] w-full bg-[#020407] text-white selection:bg-amber-500/30 font-sans overflow-hidden">    
             <div className="absolute top-0 left-1/4 w-[60vw] h-[50vh] bg-teal-800/15 blur-[150px] rounded-full pointer-events-none z-0"></div>
             <div className="absolute bottom-0 right-0 w-[40vw] h-[60vh] bg-amber-700/15 blur-[160px] rounded-full pointer-events-none z-0"></div>
 
@@ -474,7 +475,8 @@ export default function KrishnaChat() {
                 </div>
 
                 <div className="flex-1 overflow-y-auto pt-8 pb-6 px-4 lg:px-8 scroll-smooth scrollbar-hide" ref={chatContainerRef} onScroll={handleScroll}>
-                    <div className="max-w-4xl mx-auto space-y-6 flex flex-col w-full pb-40">
+                    {/* 🔴 FIX 2: Increased pb-40 to pb-48 to ensure the last message isn't hidden behind the text input on mobile */}
+                    <div className="max-w-4xl mx-auto space-y-6 flex flex-col w-full pb-48">
                         {messages.map((msg, idx) => (
                             <div key={idx} className={`flex flex-col w-full group ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                                 
@@ -549,7 +551,8 @@ export default function KrishnaChat() {
                         {isTyping && (
                             <div className="flex flex-col w-full items-start animate-in fade-in duration-500">
                                 <span className="text-[9px] text-amber-500/70 mb-1.5 ml-1 uppercase tracking-[0.25em] font-semibold">Sri Krishna</span>
-                                <div className="px-6 py-4 rounded-2xl rounded-tl-sm w-fit max-w-[92%] break-words bg-gradient-to-br from-[#120803] to-[#0A0502] backdrop-blur-2xl text-amber-50/95 border border-amber-900/30 shadow-[0_4px_20px_rgba(217,119,6,0.08)] font-krishna text-[15px] leading-relaxed tracking-wide">
+                                {/* 🔴 FIX 3: Added whitespace-pre-wrap to the typing container to retain formatting */}
+                                <div className="px-6 py-4 rounded-2xl rounded-tl-sm w-fit max-w-[92%] break-words whitespace-pre-wrap bg-gradient-to-br from-[#120803] to-[#0A0502] backdrop-blur-2xl text-amber-50/95 border border-amber-900/30 shadow-[0_4px_20px_rgba(217,119,6,0.08)] font-krishna text-[15px] leading-relaxed tracking-wide">
                                     {typingText}<span className="animate-pulse border-r-2 border-amber-400 ml-1"></span>
                                 </div>
                             </div>
@@ -558,7 +561,8 @@ export default function KrishnaChat() {
                     </div>
                 </div>
 
-                <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#020407] via-[#020407]/95 to-transparent pt-16 pb-6 px-4 z-20 pointer-events-none">
+                {/* 🔴 FIX 4: Added pb-[max(1.5rem,env(safe-area-inset-bottom))] to respect iOS/Android home indicators */}
+                <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#020407] via-[#020407]/95 to-transparent pt-16 pb-[max(1.5rem,env(safe-area-inset-bottom))] px-4 z-20 pointer-events-none">
                     <div className="max-w-4xl mx-auto w-full flex flex-col justify-end pointer-events-auto">
                         
                         {selectedTopics.length > 0 && (
