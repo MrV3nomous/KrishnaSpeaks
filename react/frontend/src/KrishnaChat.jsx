@@ -576,6 +576,7 @@ export default function KrishnaChat() {
                             <textarea
                                 ref={textareaRef} value={input} onChange={(e) => { setInput(e.target.value); e.target.style.height = 'auto'; e.target.style.height = `${Math.min(e.target.scrollHeight, 130)}px`; }} onKeyDown={handleKeyDown} disabled={isLoading || isTyping}
                                 placeholder={selectedTopics.length > 0 ? "Ask about these topics..." : t.placeholder}
+                                onFocus={() => {setTimeout(() => {window.scrollTo(0, 0); document.body.scrollTop = 0;}, 100);}}
                                 className="flex-1 bg-transparent text-white placeholder-white/30 px-4 py-3 focus:outline-none disabled:opacity-50 text-[14px] resize-none overflow-hidden min-h-[44px] rounded-xl font-normal leading-relaxed" rows={1}
                             />
                             {(isLoading || isTyping) ? (
