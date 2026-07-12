@@ -8,10 +8,18 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: [
-        'https://krishna-speaks-kappa.vercel.app',
-        'http://localhost:5173'
-    ],
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        const allowedOrigins = [
+            'https://krishna-speaks-kappa.vercel.app',
+            'http://localhost:5173'
+        ];
+        if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
