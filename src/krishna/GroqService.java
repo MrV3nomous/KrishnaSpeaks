@@ -36,13 +36,13 @@ public class GroqService {
 
     public String fetchKrishnaResponse(String contextHistory, String userInput) {
         String prompt = "PREVIOUS CONVERSATION CONTEXT: " + contextHistory + "\n\nDEVOTEE SAYS: " + userInput;
-        return callGroqApi(KRISHNA_PERSONA, prompt, "llama-3.3-70b-versatile");
+        return callGroqApi(KRISHNA_PERSONA, prompt, "openai/gpt-oss-120b");
     }
 
     public String generateTurnSummary(String userInput, String botResponse) {
         String summarizerSystem = "You are a backend context-manager. Summarize the following exchange in ONE very short sentence to act as memory for an AI.";
         String prompt = "User said: " + userInput + "\nKrishna replied: " + botResponse;
-        return callGroqApi(summarizerSystem, prompt, "llama-3.1-8b-instant");
+        return callGroqApi(summarizerSystem, prompt, "openai/gpt-oss-120b");
     }
 
     private String callGroqApi(String systemPrompt, String userPrompt, String model) {
