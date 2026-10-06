@@ -329,7 +329,15 @@ export default function KrishnaChat() {
 
             const data = await response.json();
             setIsLoading(false);
-            if (data.reply) simulateTyping(data.reply);
+            
+            // Updated Error Handling
+            if (response.ok && data.reply) {
+                simulateTyping(data.reply);
+            } else if (data.error) {
+                simulateTyping(data.error);
+            } else {
+                simulateTyping("The material energy disrupts our connection. Please try again.");
+            }
 
         } catch (error) {
             setIsLoading(false);

@@ -57,12 +57,13 @@ app.get('/', (req, res) => {
 
 app.post('/api/chat', async (req, res) => {
     try {
-        const { message, history } = req.body;
+        // Removed `message` - we only need history because the frontend 
+        // already appended the newest user message into the history array.
+        const { history } = req.body;
         
         const messages = [
             { role: "system", content: KRISHNA_PERSONA },
-            ...history,
-            { role: "user", content: message }
+            ...history
         ];
 
         const chatCompletion = await groq.chat.completions.create({
